@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('./routes');
 const PORT = 3333;
 
@@ -9,7 +10,7 @@ mongoose.connect('mongodb+srv://omnistack:omnihide@cluster0-aa5kv.mongodb.net/te
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
-
+app.use( cors() );
 app.use( express.json() );
 app.use(routes);
 
